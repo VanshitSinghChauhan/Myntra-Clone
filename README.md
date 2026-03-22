@@ -5,7 +5,7 @@ A fully functional, JS e-commerce project featuring a product grid, shopping car
 ## Features
 * **Dynamic Product Grid:** Renders 100 products using SQL database and managed via JavaScript.
 * **Functional Cart:** Add/Remove items with real-time price updates.
-* **Persistent Storage:** Uses `localStorage` to keep track of the cart.
+* **Persistent Storage:** Uses LocalStorage to keep track of the cart.
 * **Delivery Info Modal:** Custom-built popup to collect user delivery details.
 * **Simulated Checkout:** A complete end-to-end flow from "Bag" to "Order Success" screen.
 
@@ -18,7 +18,7 @@ A fully functional, JS e-commerce project featuring a product grid, shopping car
 ## Database Schema
 This project includes a SQL dataset used to manage the product inventory. 
 * **Table:** Products.
-* **Format:** `.sql` file included in the `\Database` folder.
+* **Format:** .sql file included in the Database folder.
 
 ## Screenshots
 ![Home Page](./Screen Shots/home_ss.png)
