@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    position: sticky;
+    top:0;
+    background: #ffffff;
+    height: 66px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.left img{
+    width: 25px;
+    height: 25px;
+}
+.container{
+    padding:0 10vw;
+}
+nav{
+    font-size: 15px;
+    padding-top: 14px;
+} 
+nav ul li{
+    list-style: none;
+    padding: 0px 12px;
+    cursor: pointer; 
+}
+.search{
+    width: 34vw;
+    padding:7px 17px;
+    border: 0.5px solid grey;
+    background: #ffffff;
+    border-radius: 5px;
+}
+.right div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.right i {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    background-color: #ff3f6c;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.product-card {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.add-to-cart-btn {
+    background: #ff3f6c;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+/*   Shop Section*/
+
+.section1{
+    background-color: #ffffff;
+}
+.homeImg{
+    width: 100%;
+    margin: 12px 0px;
+}
+.underImg{
+    margin-top: 10px
+}
+.shop-section{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 3vw;
+    flex-wrap: wrap;
+}
+.box{
+    height: 300px;
+    width: 18%;
+    border: 5px solid #6a1b9a;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.box img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px
+}
+.under-5box{
+    width: 100%;
+}
+.shop-section2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 20px 2vw;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px 
+}
+
+.promo-card {
+    width: 15%; 
+    min-width: 180px;
+    background-color: #6a1b9a; 
+    border: 5px solid #6a1b9a;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.s2box2 {
+    height: 200px; 
+    width: 100%;
+    background-color: white; 
+}
+
+.s2box2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Prevents image stretching */
+}
+
+.text-container {
+    padding: 10px 5px;
+    text-align: center;
+    color: white;
+}
+
+.category-text {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.discount-text {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 2px 0;
+}
+
+.shop-now-text {
+    font-size: 12px;
+    text-decoration: none;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    <link rel="stylesheet" href="prdstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+    <header class="container">
+            <nav class="flex space-between">
+                <div class="left flex items-center">
+                    <img src="MyntraImages/Myntra_Logo.png" id="home-btn" style="cursor:pointer" onclick="window.location.href='index.html'">
+                    <ul class="flex items-center justify-center uppercase semibold">
+                        <li class="nav-link" data-category="men" onclick="window.location.href='product.html?gender=men'">Men</li>
+                        <li class="nav-link" data-category="women" onclick="window.location.href='product.html?gender=women'">Women</li>
+                        <li class="nav-link" data-category="kids" onclick="window.location.href='product.html?gender=kids'">Kids</li>
+                        <li class="nav-link" data-category="home" onclick="window.location.href='product.html?gender=home'">Home & Living</li>
+                        <li class="nav-link" data-category="beauty" onclick="window.location.href='product.html?gender=beauty'">Beauty</li>
+                    </ul>
+                </div>
+                <div class="right flex items-center">
+                    <input type="text" class="search" placeholder="Search products...">
+                    
+                    <div class="profile mx-2"><i class="fa-regular fa-user"></i><span>Profile</span></div> 
+                    
+                    <div class="wishlist mx-2"><i class="fa-regular fa-heart"></i><span>Wishlist</span></div> 
+                    
+                    <div class="bag mx-2" onclick="window.location.href='cart.html'" style="position: relative; cursor: pointer;">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span id="cart-count">0</span> 
+                    </div> 
+                </div>
+            </nav>
+        </header>
+
+    <div class="container">
+        <aside class="filters">
+            <h3>FILTERS</h3>
+            <div class="filter-section">
+                <h4>AUDIENCE</h4>
+                <label><input type="radio" name="gender" value="men" checked> Men</label>
+                <label><input type="radio" name="gender" value="women"> Women</label>
+                <label><input type="radio" name="gender" value="kids"> Kids</label>
+                <label><input type="radio" name="gender" value="home"> Home</label>
+                <label><input type="radio" name="gender" value="beauty"> Beauty</label>
+
+            </div>
+
+            <div class="filter-section">
+                <h4>CATEGORIES</h4>
+                <label><input type="checkbox" class="cat-filter" value="Tshirts"> T-Shirts</label>
+                <label><input type="checkbox" class="cat-filter" value="Jeans"> Jeans</label>
+                <label><input type="checkbox" class="cat-filter" value="Shorts"> Shorts</label>
+            </div>
+
+            <div class="filter-section">
+                <h4>PRICE RANGE</h4>
+                <input type="range" id="priceRange" min="0" max="5000" value="5000">
+                <p>Max Price: Rs. <span id="priceVal">5000</span></p>
+            </div>
+        </aside>
+
+        <main>
+            <div class="sort-bar">
+                
+            </div>
+            <div class="main-content">
+                <div class="sidebar">
+
+                </div>
+            <div class="product-grid" id="productGrid">
+
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const productGrid = document.getElementById('productGrid');
+        const priceRange = document.getElementById('priceRange');
+        const priceVal = document.getElementById('priceVal');
+        const itemCount = document.getElementById('itemCount');
+        const categoryFilters = document.querySelectorAll('.cat-filter');
+        const genderFilters = document.querySelectorAll('input[name="gender"]');
+        localStorage.removeItem('myntraCart');
+        let allProducts = []; 
+
+        async function loadProducts() {
+            try {
+                const response = await fetch('http://localhost:8081/api/products');
+                allProducts = await response.json();
+                
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlGender = urlParams.get('gender'); 
+                
+                if (urlGender) {
+                    const radio = document.querySelector(`input[name="gender"][value="${urlGender.toLowerCase()}"]`);
+                    if (radio) radio.checked = true;
+                    
+                    applyFilters(); 
+                } else {
+                    renderGrid(allProducts); 
+                }
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        }
+
+        function applyFilters() {
+            const maxPrice = parseInt(priceRange.value);
+            priceVal.innerText = maxPrice;
+
+            const selectedGender = document.querySelector('input[name="gender"]:checked').value;
+
+            const activeCats = Array.from(categoryFilters)
+                .filter(i => i.checked)
+                .map(i => i.value);
+
+            const filtered = allProducts.filter(p => {
+                const matchesPrice = Number(p.price) <= maxPrice;
+                
+                
+                const matchesGender = p.category && p.category.toLowerCase() === selectedGender.toLowerCase();
+                
+                const matchesCat = activeCats.length === 0 || activeCats.includes(p.sub_category);
+                
+                return matchesPrice && matchesGender && matchesCat;
+            });
+
+            console.log("Found products:", filtered.length); 
+            renderGrid(filtered);
+        }
+
+        function renderGrid(list) {
+            const grid = document.getElementById('productGrid'); 
+            grid.innerHTML = '';
+            
+            list.forEach(p => {
+
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <img src="${p.image_url}" alt="${p.product_name}">
+                        <div class="info">
+                            <div class="brand">${p.brand}</div>
+                            <div class="name">${p.product_name}</div>
+                            <div class="price">
+                                <strong>Rs. ${p.price}</strong> 
+                                <span class="old-price">Rs. ${p.old_price}</span>
+                            </div>
+                        </div>
+                        <button class="add-to-bag-btn" onclick="addToCart(${p.id})">
+                            ADD TO BAG
+                        </button>
+                    </div>
+                `;
+            });
+        }
+        async function init() {
+            await loadProducts(); 
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const gender = urlParams.get('gender');
+            
+            if (gender) {
+                gender = gender.toLowerCase(); 
+                const radio = document.querySelector(`input[name="gender"][value="${gender}"]`);
+                if (radio) {
+                    radio.checked = true;
+                    applyFilters(); 
+                }
+            }
+        }
+        init();
+        let cartItems = 0;
+
+        function addToCart(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            let cart = JSON.parse(localStorage.getItem('myntraCart')) || [];
+
+            cart.push(product);
+
+            localStorage.setItem('myntraCart', JSON.stringify(cart));
+
+            updateCartCount();
+        }
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('myntraCart')) || [];
+            const countSpan = document.getElementById('cart-count');
+            if(countSpan) {
+                countSpan.innerText = cart.length;
+                countSpan.style.display = cart.length > 0 ? 'block' : 'none';
+            }
+        }
+
+        
+        priceRange.addEventListener('input', () => applyFilters());
+        categoryFilters.forEach(cb => cb.addEventListener('change', () => applyFilters()));
+        genderFilters.forEach(rb => rb.addEventListener('change', () => applyFilters()));
+
+    
+    </script>
+</body>
+</html>

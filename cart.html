@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | Myntra Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="cart-wrapper">
+        <div class="cart-items-section" id="cartItemsList">
+            </div>
+
+        <div class="price-block">
+            <h3>PRICE DETAILS (<span id="count-header">0</span> Items)</h3>
+            <div class="price-row">
+                <span>Total MRP</span>
+                <span>Rs. <span id="totalMRP">0</span></span>
+            </div>
+            <div class="price-row">
+                <span>Discount on MRP</span>
+                <span class="green-text">- Rs. <span id="totalDiscount">0</span></span>
+            </div>
+            <div class="price-row total-row">
+                <span>Total Amount</span>
+                <span>Rs. <span id="finalAmount">0</span></span>
+            </div>
+            <button class="order-btn" onclick="proceedToPayment()">PLACE ORDER</button>
+        </div>
+    </div>
+    <div id="orderSuccess" class="success-container" style="display: none;">
+        <div class="success-card">
+            <div class="icon-circle">✔</div>
+            <h1>Order Placed!</h1>
+            <p>Thank you for shopping with us, <span id="summ-name"></span>.</p>
+            <p class="order-id">Order ID: <span id="summ-orderid"></span></p>
+            <div class="delivery-box">
+                <p><strong>Delivering to:</strong></p>
+                <p id="summ-address"></p>
+            </div>
+            <button class="shop-more-btn" onclick="window.location.href='product.html'">CONTINUE SHOPPING</button>
+        </div>
+    </div>
+    <div id="addressModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Delivery Details</h2>
+            <form id="addressForm" onsubmit="handleFormSubmit(event)">
+                <input type="text" id="userName" placeholder="Full Name" required>
+                <input type="tel" id="userPhone" placeholder="Mobile Number" required>
+                <input type="text" id="userStreet" placeholder="Address" required>
+                <input type="text" id="userCity" placeholder="City" required>
+                <input type="text" id="userPincode" placeholder="Pincode" required>
+                <button type="submit" class="confirm-btn">CONTINUE TO PAYMENT</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

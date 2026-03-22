@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Clone</title>
+    
+    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+    <body>
+        <header class="container">
+            <nav class="flex space-between">
+                <div class="left flex items-center">
+                    <img src="MyntraImages/Myntra_Logo.png" id="home-btn" style="cursor:pointer">
+                    <ul class="flex items-center justify-center uppercase semibold">
+                        <li class="nav-link" data-category="men" onclick="window.location.href='product.html?gender=Men'">Men</li>
+                        <li class="nav-link" data-category="women" onclick="window.location.href='product.html?gender=Women'">Women</li>
+                        <li class="nav-link" data-category="kids" onclick="window.location.href='product.html?gender=Kids'">Kids</li>
+                        <li class="nav-link" data-category="home" onclick="window.location.href='product.html?gender=Home'">Home & Living</li>
+                        <li class="nav-link" data-category="beauty" onclick="window.location.href='product.html?gender=Beauty'">Beauty</li>
+                    </ul>
+                </div>
+                <div class="right flex items-center">
+                    <input type="text" class="search" placeholder="Search products...">
+                    <div class="profile mx-2"><i class="fa-regular fa-user"></i><span>Profile</span></div> 
+                    <div class="wishlist mx-2"><i class="fa-regular fa-heart"></i><span>Wishlist</span></div> 
+                    <div class="bag mx-2" style="position: relative;">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span>Bag</span>
+                        <span id="cart-count">0</span> 
+                    </div> 
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <div id="landing-page">
+                </div>
+
+            <div id="product-listing" class="shop-section2" style="display:none;">
+                <h2 id="category-title" style="width:100%; margin-bottom:20px;">Category</h2>
+                <div id="products-grid" class="flex flex-wrap"></div>
+            </div>
+        </main>
+        <div class="shopping-container">
+            <div class="section1">
+                <img class="homeImg" src="MyntraImages/entryBanner.png" onClick="window.location.href='product.html?gender=Men'">
+            </div>
+            <div class="shop-section">
+            <div class="s1box1 box">
+                    <img src="MyntraImages/shop-box1.png" alt="">
+                </div>
+                <div class="s1box2 box">
+                    <img src="MyntraImages/shop-box2.png" alt="">
+                </div>
+                <div class="s1box3 box">
+                    <img src="MyntraImages/shop-box3.png" alt="">
+                </div>
+                <div class="s1box4 box">
+                    <img src="MyntraImages/shop-box4.png" alt="">
+                </div>
+                <div class="s1s2box5 box">
+                    <img src="MyntraImages/shop-box5.png" alt="">
+                </div>
+            </div>
+            <div class="section2">
+                <img class="under-5box" src="MyntraImages/shop-5box-lower.png">
+            </div>
+            <div class="shop-section2">
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box1.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Ethnic Wear</p>
+                        <p class="discount-text">50-80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box2.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Casual Wear</p>
+                        <p class="discount-text">40-80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box3.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Men's Wear</p>
+                        <p class="discount-text">30-70% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box4.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Watches</p>
+                        <p class="discount-text">UP TO 80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box5.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Grooming</p>
+                        <p class="discount-text">UP TO 60% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box6.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Kid's Wear</p>
+                        <p class="discount-text">50-70% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-section2">
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box1.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Ethnic Wear</p>
+                        <p class="discount-text">50-80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box2.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Casual Wear</p>
+                        <p class="discount-text">40-80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box3.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Men's Wear</p>
+                        <p class="discount-text">30-70% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box4.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Watches</p>
+                        <p class="discount-text">UP TO 80% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box5.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Grooming</p>
+                        <p class="discount-text">UP TO 60% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+                <div class="promo-card">
+                    <div class="s2box2">
+                        <img src="MyntraImages/lower-box6.png" alt="Ethnic Wear">
+                    </div>
+                <div class="text-container">
+                        <p class="category-text">Kid's Wear</p>
+                        <p class="discount-text">50-70% OFF</p>
+                        <p class="shop-now-text">Shop Now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

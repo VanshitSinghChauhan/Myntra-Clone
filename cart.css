@@ -1,0 +1,159 @@
+.cart-wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 50px auto;
+    gap: 40px;
+}
+
+.cart-items-section {
+    flex: 2;
+}
+
+.price-block {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #eaeaec;
+    height: fit-content;
+}
+
+.cart-item-card {
+    display: flex;
+    border: 1px solid #eaeaec;
+    padding: 12px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.cart-item-card img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.item-details {
+    padding-left: 20px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #282c3f;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.total-row {
+    font-weight: bold;
+    border-top: 1px solid #eaeaec;
+    padding-top: 15px;
+}
+
+.order-btn {
+    width: 100%;
+    background: #ff3f6c;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.confirm-btn {
+    width: 100%;
+    background: #ff3f6c;
+    color: white;
+    padding: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.success-container {
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.success-card {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border: 1px solid #eaeaec;
+    max-width: 500px;
+    width: 100%;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: #03a685;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin: 0 auto 20px;
+}
+
+.delivery-box {
+    background: #f5f5f6;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.shop-more-btn {
+    background: #ff3f6c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
