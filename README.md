@@ -21,9 +21,12 @@ This project includes a SQL dataset used to manage the product inventory.
 * **Format:** .sql file included in the Database folder.
 
 ## Screenshots
-![Home Page](./Screen Shots/home_ss.png)
-![](./Screen Shots/home_ss_2.png)
-![Product Page](./Screen Shots/prd_ss.png)
-![Cart Page](./Screen Shots/cart_ss.png)
-![Order Page](./Screen Shots/order_placed_ss.png)
+### Home Page
+![Home Page](./Screen%20Shots/home_ss.png)
+### Product Page
+![Product Page](./Screen%20Shots/prd_ss.png)
+### Cart Page
+![Cart Page](./Screen%20Shots/cart_ss.png)
+### Order Page
+![Order Page](./Screen%20Shots/order_placed_ss.png)
 
