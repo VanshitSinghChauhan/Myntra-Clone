@@ -34,7 +34,6 @@ function renderCart() {
 
 function updateBill(mrp) {
     document.getElementById('totalMRP').innerText = mrp;
-    // For now, let's keep discount 0 or 10% for testing
     let discount = Math.floor(mrp * 0.1); 
     document.getElementById('totalDiscount').innerText = discount;
     document.getElementById('finalAmount').innerText = mrp - discount;
@@ -63,23 +62,18 @@ function closeModal() {
 function handleFormSubmit(event) {
     event.preventDefault();
 
-    // 1. Get Info
     const name = document.getElementById('userName').value;
     const address = document.getElementById('userStreet').value + ", " + document.getElementById('userCity').value;
 
-    // 2. Clear Cart Data
     localStorage.removeItem('myntraCart');
 
-    // 3. Hide the Bag and the Modal
     document.querySelector('.cart-wrapper').style.display = 'none';
     closeModal();
 
-    // 4. Fill the Success Screen "Blanks"
     document.getElementById('summ-name').innerText = name;
     document.getElementById('summ-address').innerText = address;
     document.getElementById('summ-orderid').innerText = "MYN-" + Math.floor(Math.random() * 1000000);
 
-    // 5. Show the Success Screen
     document.getElementById('orderSuccess').style.display = 'flex';
 }
 
