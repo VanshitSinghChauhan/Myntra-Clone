@@ -1,4 +1,4 @@
-# Myntra Clone - E-Commerce Web App
+# E-Commerce Web App
 
 A fully functional, JS e-commerce project featuring a product grid, shopping cart logic, and a simulated checkout flow.
 
